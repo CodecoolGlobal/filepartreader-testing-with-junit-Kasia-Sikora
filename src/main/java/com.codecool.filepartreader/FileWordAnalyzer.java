@@ -1,6 +1,5 @@
 package com.codecool.filepartreader;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +13,7 @@ class FileWordAnalyzer {
     }
 
 
-    List getWordsOrderedAlphabetically(){
+    List getWordsOrderedAlphabetically() {
 
         List<String> wordsOrderedList = Arrays.asList(filePartReader.readLines().split(" "));
         wordsOrderedList.sort(String.CASE_INSENSITIVE_ORDER);
@@ -41,15 +40,8 @@ class FileWordAnalyzer {
     List getStringsWhichPalindromes() {
 
         String text = filePartReader.readLines();
-        String[] textList = text.split("\\s+");
-        List<String> result = new ArrayList<>();
 
-        for (String word : textList) {
-            if (word.contentEquals(new StringBuilder(word).reverse())) {
-                result.add(word);
-            }
-        }
-        return result;
+        return getStringsWhichPalindromes(text);
     }
 
 
